@@ -1,10 +1,13 @@
 package com.mohamednagah.school_api.student.entity;
 
+import com.mohamednagah.school_api.course.entity.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity(name = "Student")
 @Table(
@@ -62,6 +65,15 @@ public class Student {
             nullable = false
     )
     private String grade;
+
+    @ManyToMany
+    @JoinTable(
+            name = "student_course",
+            foreignKey = @ForeignKey(name = "student_course_fk"),
+            joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id")
+    )
+    private List<Course> enrolledCourses;
 
     public Student(String firstName, String lastName, String email, Integer age, Gender gender, String grade) {
         this.firstName = firstName;

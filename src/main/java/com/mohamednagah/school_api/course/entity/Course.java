@@ -1,10 +1,13 @@
 package com.mohamednagah.school_api.course.entity;
 
+import com.mohamednagah.school_api.student.entity.Student;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity(name = "Course")
 @Table(
@@ -32,6 +35,9 @@ public class Course {
     )
     private String courseName;
 
-
-
+    @ManyToMany(
+            targetEntity = Student.class,
+            mappedBy = "enrolledCourses"
+    )
+    private List<Student> enrolledStudents;
 }

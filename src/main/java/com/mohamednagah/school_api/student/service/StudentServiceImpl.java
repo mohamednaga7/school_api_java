@@ -1,5 +1,6 @@
 package com.mohamednagah.school_api.student.service;
 
+import com.mohamednagah.school_api.course.entity.Course;
 import com.mohamednagah.school_api.student.dto.AddStudentDto;
 import com.mohamednagah.school_api.student.dto.UpdateStudentDto;
 import com.mohamednagah.school_api.student.entity.Student;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,6 +38,10 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student getStudentById(String studentId) {
         Optional<Student> foundStudent = this.studentRepository.findById(studentId);
+        if (foundStudent.isPresent()) {
+            List<Course> courses = foundStudent.get().getEnrolledCourses();
+            System.out.println(courses.size());
+        }
         return foundStudent.orElseThrow(() -> new IllegalStateException(String.format("Student with id %s is not found", studentId)));
     }
 

@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class AddCourseDto {
-    private final String courseName;
+    private String courseName;
 }
