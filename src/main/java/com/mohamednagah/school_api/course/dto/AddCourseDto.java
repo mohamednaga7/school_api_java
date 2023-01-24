@@ -1,8 +1,12 @@
 package com.mohamednagah.school_api.course.dto;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class AddCourseDto {
     private String courseName;
 }

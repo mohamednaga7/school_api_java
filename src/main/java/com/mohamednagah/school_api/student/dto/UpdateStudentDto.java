@@ -1,7 +1,7 @@
 package com.mohamednagah.school_api.student.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.mohamednagah.school_api.student.entity.Gender;
+import com.mohamednagah.school_api.shared.entity.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.mohamednagah.school_api.student.entity;
+package com.mohamednagah.school_api.shared.entity;
 
 public enum Gender {
     MALE("MALE"),

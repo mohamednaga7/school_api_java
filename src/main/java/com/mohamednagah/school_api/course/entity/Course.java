@@ -1,6 +1,7 @@
 package com.mohamednagah.school_api.course.entity;
 
 import com.mohamednagah.school_api.student.entity.Student;
+import com.mohamednagah.school_api.teacher.entity.Teacher;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,4 +41,10 @@ public class Course {
             mappedBy = "enrolledCourses"
     )
     private List<Student> enrolledStudents;
+
+    @ManyToMany(
+            targetEntity = Teacher.class,
+            mappedBy = "courses"
+    )
+    private List<Student> courseTeachers;
 }

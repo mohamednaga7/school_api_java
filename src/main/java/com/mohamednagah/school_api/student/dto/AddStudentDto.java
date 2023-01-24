@@ -1,14 +1,22 @@
 package com.mohamednagah.school_api.student.dto;
 
-import com.mohamednagah.school_api.student.entity.Gender;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.mohamednagah.school_api.shared.entity.Gender;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class AddStudentDto {
-    private final String firstName;
-    private final String lastName;
-    private final String email;
-    private final Gender gender;
-    private final Integer age;
-    private final String grade;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private Gender gender;
+    private Integer age;
+    private String grade;
 }
